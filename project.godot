@@ -10,8 +10,8 @@ config_version=5
 
 [application]
 
-config/name="BurgerStrike"
-run/main_scene="res://scenes/levels/Main.tscn"
+config/name="Starburst"
+run/main_scene="res://scenes/Level.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -21,6 +21,8 @@ SignalBus="*res://scripts/SignalBus.gd"
 
 [display]
 
+window/size/viewport_width=540
+window/size/viewport_height=960
 window/stretch/mode="canvas_items"
 
 [input]

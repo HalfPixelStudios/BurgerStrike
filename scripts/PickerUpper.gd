@@ -22,5 +22,6 @@ func _physics_process(delta):
 				$"../Inventory".add_item(body.item)
 			elif body.item is SauceItem:
 				print("sauce item", body.item)
+				$"../Shooter".add_bullet(body.item)
 
 			body.queue_free()

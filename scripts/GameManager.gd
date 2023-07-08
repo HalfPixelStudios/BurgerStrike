@@ -1,7 +1,7 @@
 extends Node2D
 
 @onready var player = $Player
-@onready var bullet_container = $BulletContainer
+#@onready var bullet_container = $BulletContainer
 
 @onready var signal_bus = get_node("/root/SignalBus")
 @onready var shooter = load("res://scripts/Shooter.gd").new()
@@ -21,13 +21,14 @@ func _on_bullet_shoot(bullet_scene, location, rotation):
 	var bullet = bullet_scene.instantiate()
 	bullet.global_position = location
 	bullet.rotation = rotation
-	bullet_container.add_child(bullet)
+	#bullet_container.add_child(bullet)
 
 func _on_bullet_shoot_player(bullet_scene, location, rotation):
-	var bullet = bullet_scene.instantiate()
-	bullet.global_position = location
-	bullet.rotation = rotation
-	bullet_container.add_child(bullet)
-	var curr_bullet_type = shooter.shoot_bullet(shooter.shooting_queue)
-	bullet.modulate = shooter.bullet_type[curr_bullet_type]  
+	# var bullet = bullet_scene.instantiate()
+	# bullet.global_position = location
+	# bullet.rotation = rotation
+	# bullet_container.add_child(bullet)
+	# var curr_bullet_type = shooter.shoot_bullet(shooter.shooting_queue)
+	# bullet.modulate = shooter.bullet_type[curr_bullet_type]  
 	
+	pass

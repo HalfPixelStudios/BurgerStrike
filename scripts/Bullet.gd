@@ -3,8 +3,6 @@ class_name PlayerBullet extends Area2D
 @export var speed: int = 200
 @export var dir: Vector2 = Vector2(0, -1)
 
-@onready var shooter = load("res://scripts/Shooter.gd").new()
-
 func set_dir(dir):
 	self.dir = dir
 

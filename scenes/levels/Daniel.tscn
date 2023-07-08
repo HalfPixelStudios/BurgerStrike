@@ -1,9 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://ctbe15r3nw1ey"]
+[gd_scene load_steps=10 format=3 uid="uid://ctbe15r3nw1ey"]
 
 [ext_resource type="Script" path="res://scripts/GameManager.gd" id="1_p5wqo"]
 [ext_resource type="Texture2D" uid="uid://tpf23uytvwei" path="res://sprites/tileset.png" id="2_4uj7p"]
 [ext_resource type="PackedScene" uid="uid://cwre7pomfe73u" path="res://scenes/Player.tscn" id="3_wbqv4"]
-[ext_resource type="PackedScene" uid="uid://c0ujo7raol74o" path="res://scenes/Enemy.tscn" id="4_vfbub"]
 [ext_resource type="Script" path="res://scripts/Camera.gd" id="5_r3lwe"]
 [ext_resource type="PackedScene" uid="uid://ckeuy4n7lbry5" path="res://scenes/PickupItem.tscn" id="6_n4xlb"]
 [ext_resource type="Resource" uid="uid://gk7qypk05u23" path="res://resources/items/sauce/ketcup.tres" id="7_yr2jp"]
@@ -286,11 +285,6 @@ layer_1/tile_data = PackedInt32Array(262142, 0, 19, 262143, 65536, 19, 196608, 1
 
 [node name="Player" parent="." instance=ExtResource("3_wbqv4")]
 position = Vector2(-41, 6)
-
-[node name="Enemy" parent="." instance=ExtResource("4_vfbub")]
-position = Vector2(-37, -8)
-
-[node name="BulletContainer" type="Node" parent="."]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)

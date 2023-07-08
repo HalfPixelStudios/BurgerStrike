@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://ckeuy4n7lbry5"]
+
+[ext_resource type="Script" path="res://scripts/PickupItem.gd" id="1_0mwhv"]
+[ext_resource type="Texture2D" uid="uid://5jnm0t5m0wyr" path="res://sprites/03.png" id="2_ksra5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u18pm"]
+
+[node name="PickupItem" type="Area2D"]
+collision_layer = 2049
+collision_mask = 2049
+script = ExtResource("1_0mwhv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_ksra5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_u18pm")

@@ -1,12 +1,15 @@
-[gd_scene load_steps=10 format=3 uid="uid://ctbe15r3nw1ey"]
+[gd_scene load_steps=13 format=3 uid="uid://ctbe15r3nw1ey"]
 
 [ext_resource type="Script" path="res://scripts/GameManager.gd" id="1_p5wqo"]
 [ext_resource type="Texture2D" uid="uid://tpf23uytvwei" path="res://sprites/tileset.png" id="2_4uj7p"]
 [ext_resource type="PackedScene" uid="uid://cwre7pomfe73u" path="res://scenes/Player.tscn" id="3_wbqv4"]
+[ext_resource type="PackedScene" uid="uid://c0ujo7raol74o" path="res://scenes/Enemy.tscn" id="4_vfbub"]
 [ext_resource type="Script" path="res://scripts/Camera.gd" id="5_r3lwe"]
 [ext_resource type="PackedScene" uid="uid://ckeuy4n7lbry5" path="res://scenes/PickupItem.tscn" id="6_n4xlb"]
 [ext_resource type="Resource" uid="uid://gk7qypk05u23" path="res://resources/items/sauce/ketcup.tres" id="7_yr2jp"]
 [ext_resource type="Resource" uid="uid://bqmoq80j5den7" path="res://resources/items/burger/lettuce.tres" id="8_7fw84"]
+[ext_resource type="Script" path="res://scripts/WaveManager.gd" id="8_qan7t"]
+[ext_resource type="Script" path="res://scripts/WaveSpawn.gd" id="9_8ur2i"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lrw20"]
 texture = ExtResource("2_4uj7p")
@@ -299,3 +302,28 @@ item = ExtResource("7_yr2jp")
 [node name="LettuceItem" parent="." instance=ExtResource("6_n4xlb")]
 position = Vector2(47, 37)
 item = ExtResource("8_7fw84")
+
+[node name="WaveManager" type="Node" parent="."]
+script = ExtResource("8_qan7t")
+
+[node name="Waves" type="Node" parent="WaveManager"]
+
+[node name="1" type="Node" parent="WaveManager/Waves"]
+
+[node name="WaveSpawn" type="Node" parent="WaveManager/Waves/1"]
+script = ExtResource("9_8ur2i")
+enemy = ExtResource("4_vfbub")
+count = 5
+
+[node name="SpawnLocations" type="Node" parent="WaveManager"]
+
+[node name="Spawn" type="Node2D" parent="WaveManager/SpawnLocations" groups=["spawn"]]
+position = Vector2(-124, 2)
+
+[node name="Spawn2" type="Node2D" parent="WaveManager/SpawnLocations" groups=["spawn"]]
+position = Vector2(117, 0)
+
+[node name="SpawnTimer" type="Timer" parent="WaveManager"]
+wait_time = 2.0
+
+[connection signal="timeout" from="WaveManager/SpawnTimer" to="WaveManager" method="_on_spawn_timer_timeout"]

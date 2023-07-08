@@ -3,6 +3,7 @@ class_name PickerUpper extends Area2D
 @export var item: String
 
 func _ready():
+	area_entered.connect(_on_area_entered)
 	print("picker upper item ready")
 
 func _on_area_entered(area):

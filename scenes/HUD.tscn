@@ -1,0 +1,69 @@
+[gd_scene load_steps=5 format=3 uid="uid://b4ch2e1hprhrf"]
+
+[ext_resource type="Script" path="res://scripts/ui/BurgerDisplay.gd" id="1_ssriw"]
+[ext_resource type="Texture2D" uid="uid://comkybd16uyko" path="res://sprites/burger/lettuce.png" id="1_vl8p0"]
+[ext_resource type="Texture2D" uid="uid://dpty02wbprtep" path="res://sprites/burger/onion.png" id="2_efnou"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_r8psx"]
+font_size = 30
+font_color = Color(0, 0, 0, 1)
+outline_size = 5
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BurgerDisplay" type="VBoxContainer" parent="."]
+layout_direction = 2
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -476.0
+offset_right = 100.0
+offset_bottom = -1.0
+grow_vertical = 0
+alignment = 2
+script = ExtResource("1_ssriw")
+
+[node name="TextureRect" type="TextureRect" parent="BurgerDisplay"]
+layout_mode = 2
+texture = ExtResource("1_vl8p0")
+expand_mode = 5
+
+[node name="Label" type="Label" parent="BurgerDisplay/TextureRect"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -46.4762
+offset_bottom = -1.4762
+grow_horizontal = 0
+grow_vertical = 0
+text = "1"
+label_settings = SubResource("LabelSettings_r8psx")
+horizontal_alignment = 2
+
+[node name="TextureRect2" type="TextureRect" parent="BurgerDisplay"]
+layout_mode = 2
+texture = ExtResource("2_efnou")
+expand_mode = 5
+
+[node name="AmmoDisplay" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0

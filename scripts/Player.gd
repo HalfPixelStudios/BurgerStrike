@@ -3,15 +3,37 @@ extends CharacterBody2D
 @export var bullet_scene: PackedScene = preload("res://scenes/PlayerBullet.tscn")
 @export var speed: float = 100
 @onready var bullet_spawn = $Marker2D
+var iframe_timer
 
 @onready var signal_bus = get_node("/root/SignalBus")
+@onready var globals = get_node("/root/Globals")
+
+func _ready():
+	# register self to be the player
+	if globals.player == null:
+		globals.player = self
+
+	iframe_timer = Timer.new()
+	iframe_timer.one_shot = true
+	iframe_timer.wait_time = 1
+	iframe_timer.stop()
+	self.add_child(iframe_timer)
 
 func _process(delta):
-	look_at(get_global_mouse_position())
+	var angle = global_position.angle_to_point(get_global_mouse_position())
 	# handle shooting
 	if Input.is_action_just_pressed('shoot'):
-		signal_bus.bullet_shoot_player.emit(bullet_scene, bullet_spawn.global_position, rotation)
 
+
+		var bullet = $Shooter.use_bullet()
+		# print("shooting bullet", bullet)
+
+		var inst = bullet_scene.instantiate()
+		# print("instantiate bullet", inst)
+		inst.global_position = bullet_spawn.global_position
+		inst.rotation = angle
+		inst.modulate = Color.RED
+		globals.bullet_container.add_child(inst)
 
 func _physics_process(delta):
 	
@@ -24,3 +46,12 @@ func _physics_process(delta):
 	velocity = input_dir * speed
 
 	move_and_slide()
+
+	# also do collision detection here
+	if iframe_timer.is_stopped():
+		for area in $Area2D.get_overlapping_areas():
+			if area.get_parent() is Enemy:
+				print("ouch!")
+				iframe_timer.start()
+				break
+

@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://bb3yr2vgs54hk"]
+
+[ext_resource type="Script" path="res://scripts/WalkParticles.gd" id="1_8egyq"]
+
+[sub_resource type="Gradient" id="Gradient_uskhj"]
+offsets = PackedFloat32Array(0.00534759, 0.967914)
+colors = PackedColorArray(0.576471, 0.345098, 0.243137, 0.709804, 0.576471, 0.345098, 0.243137, 0.0666667)
+
+[node name="WalkParticles" type="CPUParticles2D"]
+emitting = false
+amount = 1
+lifetime = 2.0
+one_shot = true
+emission_shape = 1
+emission_sphere_radius = 5.0
+spread = 180.0
+gravity = Vector2(0, 0)
+linear_accel_max = 8.55
+angle_max = 720.0
+scale_amount_min = 4.0
+scale_amount_max = 5.0
+color = Color(0.497648, 0.393649, 0.35381, 1)
+color_ramp = SubResource("Gradient_uskhj")
+script = ExtResource("1_8egyq")

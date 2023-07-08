@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://c2mxgonifbyx4"]
+
+[ext_resource type="Script" path="res://scripts/BobbingTweener.gd" id="1_livvb"]
+[ext_resource type="Script" path="res://scripts/Odometer.gd" id="2_ypwff"]
+
+[node name="BobbingTweener" type="Node2D"]
+script = ExtResource("1_livvb")
+
+[node name="Odometer" type="Node2D" parent="."]
+script = ExtResource("2_ypwff")

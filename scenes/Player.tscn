@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cfx5cdofitgxf" path="res://scenes/PickerUpper.tscn" id="3_dc2ih"]
 [ext_resource type="Script" path="res://scripts/Inventory.gd" id="4_py77w"]
 [ext_resource type="Script" path="res://scripts/Shooter.gd" id="5_372h2"]
-[ext_resource type="Resource" uid="uid://gk7qypk05u23" path="res://resources/items/sauce/ketcup.tres" id="6_8uwjp"]
+[ext_resource type="Resource" uid="uid://gk7qypk05u23" path="res://resources/items/sauce/ketchup.tres" id="6_1m6i8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w7vev"]
 size = Vector2(6, 7)
@@ -34,12 +34,12 @@ region_rect = Rect2(2.08165e-12, 2.08165e-12, 35, 35)
 
 [node name="Inventory" type="Node2D" parent="."]
 script = ExtResource("4_py77w")
-items = Array[Resource("res://scripts/BurgerItem.gd")]([null])
+items = Array[Resource("res://scripts/resources/BurgerItem.gd")]([null])
 
 [node name="Shooter" type="Node2D" parent="."]
 script = ExtResource("5_372h2")
-ammunition = Array[Resource("res://scripts/SauceItem.gd")]([ExtResource("6_8uwjp"), ExtResource("6_8uwjp"), ExtResource("6_8uwjp"), ExtResource("6_8uwjp"), ExtResource("6_8uwjp")])
-default_ammo = ExtResource("6_8uwjp")
+ammunition = Array[Resource("res://scripts/resources/SauceItem.gd")]([ExtResource("6_1m6i8"), ExtResource("6_1m6i8"), ExtResource("6_1m6i8"), ExtResource("6_1m6i8"), ExtResource("6_1m6i8")])
+default_ammo = ExtResource("6_1m6i8")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 2

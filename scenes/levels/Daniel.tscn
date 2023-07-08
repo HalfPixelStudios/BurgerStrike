@@ -6,10 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://c0ujo7raol74o" path="res://scenes/Enemy.tscn" id="4_vfbub"]
 [ext_resource type="Script" path="res://scripts/Camera.gd" id="5_r3lwe"]
 [ext_resource type="PackedScene" uid="uid://ckeuy4n7lbry5" path="res://scenes/PickupItem.tscn" id="6_n4xlb"]
-[ext_resource type="Resource" uid="uid://gk7qypk05u23" path="res://resources/items/sauce/ketcup.tres" id="7_yr2jp"]
+[ext_resource type="Resource" uid="uid://gk7qypk05u23" path="res://resources/items/sauce/ketchup.tres" id="6_tdcom"]
 [ext_resource type="Resource" uid="uid://bqmoq80j5den7" path="res://resources/items/burger/lettuce.tres" id="8_7fw84"]
 [ext_resource type="Script" path="res://scripts/WaveManager.gd" id="8_qan7t"]
-[ext_resource type="Script" path="res://scripts/WaveSpawn.gd" id="9_8ur2i"]
+[ext_resource type="Script" path="res://scripts/WaveSpawn.gd" id="9_jy4ro"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lrw20"]
 texture = ExtResource("2_4uj7p")
@@ -298,7 +298,7 @@ lerpspeed = 0.1
 
 [node name="KechupItem" parent="." instance=ExtResource("6_n4xlb")]
 position = Vector2(19, -8)
-item = ExtResource("7_yr2jp")
+item = ExtResource("6_tdcom")
 
 [node name="LettuceItem" parent="." instance=ExtResource("6_n4xlb")]
 position = Vector2(47, 37)
@@ -312,7 +312,7 @@ script = ExtResource("8_qan7t")
 [node name="1" type="Node" parent="WaveManager/Waves"]
 
 [node name="WaveSpawn" type="Node" parent="WaveManager/Waves/1"]
-script = ExtResource("9_8ur2i")
+script = ExtResource("9_jy4ro")
 enemy = ExtResource("4_vfbub")
 count = 5
 

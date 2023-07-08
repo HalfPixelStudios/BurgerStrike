@@ -5,6 +5,8 @@ class_name Enemy extends CharacterBody2D
 @onready var bullet_scene: PackedScene = preload("res://scenes/EnemyBullet.tscn")
 @onready var bullet_spawn = $Marker2D
 
+@onready var drop_table = $DropTable
+
 @onready var signal_bus = get_node("/root/SignalBus")
 @onready var globals = get_node("/root/Globals")
 
@@ -34,6 +36,13 @@ func _on_shoot_timer_timeout():
 	# bullet.dir = Vector2(0, 1)
 
 func die():
+
+	# decide on what items to drop
+	var drops = drop_table.get_drop()
+	for drop in drops:
+		# TODO technically drop spawnning code should go somewhere else
+
+
 	queue_free()
 	
 

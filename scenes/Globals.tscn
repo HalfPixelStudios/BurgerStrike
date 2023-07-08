@@ -8,3 +8,5 @@ script = ExtResource("1_dd7n5")
 [node name="BulletContainer" type="Node2D" parent="."]
 
 [node name="EnemyContainer" type="Node2D" parent="."]
+
+[node name="DropContainer" type="Node" parent="."]

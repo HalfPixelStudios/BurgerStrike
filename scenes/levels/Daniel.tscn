@@ -1,10 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://ctbe15r3nw1ey"]
+[gd_scene load_steps=12 format=3 uid="uid://ctbe15r3nw1ey"]
 
 [ext_resource type="Script" path="res://scripts/GameManager.gd" id="1_p5wqo"]
 [ext_resource type="Texture2D" uid="uid://tpf23uytvwei" path="res://sprites/tileset.png" id="2_4uj7p"]
 [ext_resource type="PackedScene" uid="uid://cwre7pomfe73u" path="res://scenes/Player.tscn" id="3_wbqv4"]
 [ext_resource type="PackedScene" uid="uid://c0ujo7raol74o" path="res://scenes/Enemy.tscn" id="4_vfbub"]
-[ext_resource type="Script" path="res://scripts/Camera.gd" id="5_r3lwe"]
 [ext_resource type="PackedScene" uid="uid://ckeuy4n7lbry5" path="res://scenes/PickupItem.tscn" id="6_n4xlb"]
 [ext_resource type="Resource" uid="uid://gk7qypk05u23" path="res://resources/items/sauce/ketchup.tres" id="6_tdcom"]
 [ext_resource type="Resource" uid="uid://bqmoq80j5den7" path="res://resources/items/burger/lettuce.tres" id="8_7fw84"]
@@ -288,13 +287,7 @@ layer_1/z_index = 0
 layer_1/tile_data = PackedInt32Array(262142, 0, 19, 262143, 65536, 19, 196608, 131072, 19, 196606, 0, 18, 196607, 65536, 18, 131072, 131072, 18, 131070, 0, 17, 131071, 0, 26, 65536, 131072, 17, 131073, 196608, 25, 196609, 196608, 26, 65535, 0, 25, -196615, 65536, 11, -131079, 65536, 12, -196614, 131072, 11, -131078, 131072, 12, -196613, 196608, 11, -131077, 196608, 12, -196612, 262144, 11, -131076, 262144, 12, -196611, 327680, 11, -131075, 327680, 12, -196610, 0, 11, -131074, 0, 12, -262149, 196608, 10)
 
 [node name="Player" parent="." instance=ExtResource("3_wbqv4")]
-position = Vector2(-41, 6)
-
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(3, 3)
-script = ExtResource("5_r3lwe")
-TargetNodepath = NodePath("../Player")
-lerpspeed = 0.1
+position = Vector2(-58, 0)
 
 [node name="KechupItem" parent="." instance=ExtResource("6_n4xlb")]
 position = Vector2(19, -8)

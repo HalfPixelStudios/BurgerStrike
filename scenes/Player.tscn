@@ -1,6 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://cwre7pomfe73u"]
+[gd_scene load_steps=15 format=3 uid="uid://cwre7pomfe73u"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_e2y74"]
+[ext_resource type="PackedScene" uid="uid://dtldbebb84hcg" path="res://scenes/PauseMenu.tscn" id="2_sq4e4"]
 [ext_resource type="Texture2D" uid="uid://5jnm0t5m0wyr" path="res://sprites/03.png" id="2_tpg8j"]
 [ext_resource type="PackedScene" uid="uid://cfx5cdofitgxf" path="res://scenes/PickerUpper.tscn" id="3_dc2ih"]
 [ext_resource type="PackedScene" uid="uid://c2mxgonifbyx4" path="res://scenes/BobbingTweener.tscn" id="3_ds64n"]
@@ -23,6 +24,13 @@ collision_layer = 2
 collision_mask = 260
 motion_mode = 1
 script = ExtResource("1_e2y74")
+
+[node name="PauseMenu" parent="." instance=ExtResource("2_sq4e4")]
+z_index = 10
+scale = Vector2(0.25, 0.25)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(4, 4)
 
 [node name="BobbingTweener" parent="." node_paths=PackedStringArray("target") instance=ExtResource("3_ds64n")]
 target = NodePath("../Sprite2D")

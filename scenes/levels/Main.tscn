@@ -1,10 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://87gviy214svj"]
+[gd_scene load_steps=7 format=3 uid="uid://87gviy214svj"]
 
 [ext_resource type="Script" path="res://scripts/GameManager.gd" id="1_b3x51"]
 [ext_resource type="Texture2D" uid="uid://tpf23uytvwei" path="res://sprites/tileset.png" id="2_b2mxc"]
 [ext_resource type="PackedScene" uid="uid://cwre7pomfe73u" path="res://scenes/Player.tscn" id="3_iwomv"]
 [ext_resource type="PackedScene" uid="uid://c0ujo7raol74o" path="res://scenes/Enemy.tscn" id="4_7ml4w"]
-[ext_resource type="Script" path="res://scripts/Camera.gd" id="5_a4i7x"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lrw20"]
 texture = ExtResource("2_b2mxc")
@@ -288,9 +287,3 @@ position = Vector2(-40, 17)
 position = Vector2(-37, -8)
 
 [node name="BulletContainer" type="Node" parent="."]
-
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(3, 3)
-script = ExtResource("5_a4i7x")
-TargetNodepath = NodePath("../Player")
-lerpspeed = 0.1

@@ -1,14 +1,16 @@
-[gd_scene load_steps=9 format=3 uid="uid://b7uqo3rkxvtah"]
+[gd_scene load_steps=11 format=3 uid="uid://b441itsmt3qkj"]
 
-[ext_resource type="Script" path="res://scripts/GameManager.gd" id="1_58sx5"]
-[ext_resource type="Texture2D" uid="uid://tpf23uytvwei" path="res://sprites/tileset.png" id="2_7w1ph"]
-[ext_resource type="PackedScene" uid="uid://cwre7pomfe73u" path="res://scenes/Player.tscn" id="3_5pmu0"]
-[ext_resource type="PackedScene" uid="uid://c0ujo7raol74o" path="res://scenes/Enemy.tscn" id="4_r0jya"]
-[ext_resource type="Script" path="res://scripts/Camera.gd" id="5_bdovx"]
-[ext_resource type="Script" path="res://scenes/levels/ScoreLabel.gd" id="6_lbpms"]
+[ext_resource type="Script" path="res://scripts/GameManager.gd" id="1_xpv7o"]
+[ext_resource type="Texture2D" uid="uid://tpf23uytvwei" path="res://sprites/tileset.png" id="2_u4tfx"]
+[ext_resource type="PackedScene" uid="uid://cwre7pomfe73u" path="res://scenes/Player.tscn" id="3_vwj0d"]
+[ext_resource type="PackedScene" path="res://scenes/PickupItem.tscn" id="4_okb0x"]
+[ext_resource type="Resource" uid="uid://h54o44qdgq0w" path="res://resources/items/burger/lettuce.tres" id="5_mco0n"]
+[ext_resource type="PackedScene" uid="uid://c0ujo7raol74o" path="res://scenes/Enemy.tscn" id="6_1btjv"]
+[ext_resource type="Script" path="res://scripts/WaveManager.gd" id="7_apsmu"]
+[ext_resource type="Script" path="res://scripts/WaveSpawn.gd" id="8_w6fx8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lrw20"]
-texture = ExtResource("2_7w1ph")
+texture = ExtResource("2_u4tfx")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -266,10 +268,11 @@ texture = ExtResource("2_7w1ph")
 [sub_resource type="TileSet" id="TileSet_tj2i2"]
 sources/0 = SubResource("TileSetAtlasSource_lrw20")
 
-[node name="HelenMain" type="Node2D"]
-script = ExtResource("1_58sx5")
+[node name="Main" type="Node2D"]
+script = ExtResource("1_xpv7o")
 
 [node name="TileMap" type="TileMap" parent="."]
+z_index = -1
 tile_set = SubResource("TileSet_tj2i2")
 format = 2
 layer_0/name = "floor"
@@ -282,38 +285,35 @@ layer_1/y_sort_origin = 0
 layer_1/z_index = 0
 layer_1/tile_data = PackedInt32Array(262142, 0, 19, 262143, 65536, 19, 196608, 131072, 19, 196606, 0, 18, 196607, 65536, 18, 131072, 131072, 18, 131070, 0, 17, 131071, 0, 26, 65536, 131072, 17, 131073, 196608, 25, 196609, 196608, 26, 65535, 0, 25, -196615, 65536, 11, -131079, 65536, 12, -196614, 131072, 11, -131078, 131072, 12, -196613, 196608, 11, -131077, 196608, 12, -196612, 262144, 11, -131076, 262144, 12, -196611, 327680, 11, -131075, 327680, 12, -196610, 0, 11, -131074, 0, 12, -262149, 196608, 10)
 
-[node name="Player" parent="." instance=ExtResource("3_5pmu0")]
-position = Vector2(-40, 17)
+[node name="Player" parent="." instance=ExtResource("3_vwj0d")]
+position = Vector2(-58, 0)
 
-[node name="Enemy" parent="." instance=ExtResource("4_r0jya")]
-position = Vector2(-37, -8)
+[node name="LettuceItem" parent="." instance=ExtResource("4_okb0x")]
+position = Vector2(47, 37)
+item = ExtResource("5_mco0n")
 
-[node name="BulletContainer" type="Node" parent="."]
+[node name="Enemy" parent="." instance=ExtResource("6_1btjv")]
+position = Vector2(-22, -16)
 
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(3, 3)
-script = ExtResource("5_bdovx")
-TargetNodepath = NodePath("../Player")
-lerpspeed = 0.1
+[node name="WaveManager" type="Node" parent="."]
+script = ExtResource("7_apsmu")
 
-[node name="UserInterface" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="Waves" type="Node" parent="WaveManager"]
 
-[node name="ScoreLabel" type="Label" parent="UserInterface"]
-layout_mode = 0
-offset_left = 54.0
-offset_top = -83.0
-offset_right = 107.0
-offset_bottom = -41.0
-scale = Vector2(1.03473, 1.06826)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_constants/line_spacing = -2
-theme_override_font_sizes/font_size = 9
-text = "Score: 0
-Health: 0
-Wave: 0"
-uppercase = true
-script = ExtResource("6_lbpms")
+[node name="1" type="Node" parent="WaveManager/Waves"]
+
+[node name="WaveSpawn" type="Node" parent="WaveManager/Waves/1"]
+script = ExtResource("8_w6fx8")
+enemy = ExtResource("6_1btjv")
+count = 5
+
+[node name="SpawnLocations" type="Node" parent="WaveManager"]
+
+[node name="Spawn" type="Node2D" parent="WaveManager/SpawnLocations" groups=["spawn"]]
+position = Vector2(-124, 2)
+
+[node name="Spawn2" type="Node2D" parent="WaveManager/SpawnLocations" groups=["spawn"]]
+position = Vector2(117, 0)
+
+[node name="SpawnTimer" type="Timer" parent="WaveManager"]
+wait_time = 2.0

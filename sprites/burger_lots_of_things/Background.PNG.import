@@ -2,17 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-
-uid="uid://bibpvbjrasbjh"
-path="res://.godot/imported/mustard.png-0b18963ad779032f205a3e74cdb21b73.ctex"
+uid="uid://blw8352nrjurx"
+path="res://.godot/imported/Background.PNG-b89958abfea773a8edfdcff6b5637593.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/mustard.png"
-dest_files=["res://.godot/imported/mustard.png-0b18963ad779032f205a3e74cdb21b73.ctex"]
+source_file="res://sprites/burger_lots_of_things/Background.PNG"
+dest_files=["res://.godot/imported/Background.PNG-b89958abfea773a8edfdcff6b5637593.ctex"]
 
 [params]
 

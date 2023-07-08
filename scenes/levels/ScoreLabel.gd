@@ -13,7 +13,7 @@ func _on_change_score():
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	signal_bus.change_score.connect(_on_change_score)
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

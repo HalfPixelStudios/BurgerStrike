@@ -2,18 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-
-uid="uid://c6wpry70ta5n1"
-
-path="res://.godot/imported/ketchup.png-d2dbbdc6863cbfa4ed9d1e4c44197bcb.ctex"
+uid="uid://csnrnr4cijf5o"
+path="res://.godot/imported/patty.PNG-d173cdd6becf5c0b0f5356f3b329f5ae.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/ketchup.png"
-dest_files=["res://.godot/imported/ketchup.png-d2dbbdc6863cbfa4ed9d1e4c44197bcb.ctex"]
+source_file="res://sprites/burger_lots_of_things/patty.PNG"
+dest_files=["res://.godot/imported/patty.PNG-d173cdd6becf5c0b0f5356f3b329f5ae.ctex"]
 
 [params]
 

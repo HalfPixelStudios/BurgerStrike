@@ -61,3 +61,7 @@ func _physics_process(delta):
 				iframe_timer.start()
 				break
 
+
+func _unhandled_input(event):
+	if event.is_action_pressed("ui_cancel"):
+		$PauseMenu.pause()

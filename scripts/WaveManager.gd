@@ -15,13 +15,15 @@ const SPAWN_REST = 0.2
 
 func _ready():
 	spawn_timer.timeout.connect(_on_spawn_timer_timeout)
-	spawn_timer.start()
+	spawn_timer.one_shot = true
+	start_wave()
 
 func _on_spawn_timer_timeout():
 	print("starting wave")
 	start_wave()
 
 func start_wave():
+	spawn_timer.stop()
 	# get all the spawns in the wave
 	print("current wave:", current_wave, waves.get_child(current_wave))
 	await get_tree().create_timer(WAVE_REST).timeout	
@@ -39,3 +41,5 @@ func start_wave():
 			globals.add_child(inst)
 
 			await get_tree().create_timer(SPAWN_REST).timeout	
+
+	spawn_timer.start()

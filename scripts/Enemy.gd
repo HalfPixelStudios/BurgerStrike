@@ -22,7 +22,6 @@ func _physics_process(delta):
 	var target = globals.player.global_position	
 	velocity = (target - global_position).normalized() * speed
 	move_and_slide()
-	pass
 
 func _on_area_entered(area):
 	if area is PlayerBullet:

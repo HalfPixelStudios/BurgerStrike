@@ -18,10 +18,10 @@ func _process(delta):
 	if Input.is_action_just_pressed('shoot'):
 
 		var bullet = $Shooter.use_bullet()
-		print("shooting bullet", bullet)
+		# print("shooting bullet", bullet)
 		if bullet != null:
 			var inst = bullet_scene.instantiate()
-			print("instantiate bullet", inst)
+			# print("instantiate bullet", inst)
 			inst.global_position = bullet_spawn.global_position
 			inst.rotation = rotation
 			inst.modulate = Color.RED

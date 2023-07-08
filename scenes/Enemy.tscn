@@ -11,7 +11,7 @@ radius = 6.0
 
 [node name="Enemy" type="CharacterBody2D"]
 collision_layer = 4
-collision_mask = 8
+collision_mask = 12
 motion_mode = 1
 script = ExtResource("1_bvujv")
 
@@ -30,6 +30,8 @@ region_rect = Rect2(8, 0, 8, 8)
 position = Vector2(0, -2)
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_kbysg")

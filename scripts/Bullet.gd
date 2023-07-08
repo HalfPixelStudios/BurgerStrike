@@ -15,7 +15,8 @@ func _physics_process(delta):
 	global_position += dir.rotated(rotation + PI/2) * speed * delta
 		
 func _on_area_entered(area):
-	if area is Enemy:
+	print("entered", area.get_parent())
+	if area.get_parent() is Enemy:
 		queue_free()
 
 func _on_visible_on_screen_notifier_2d_screen_exited():

@@ -7,6 +7,11 @@ extends CharacterBody2D
 @onready var signal_bus = get_node("/root/SignalBus")
 @onready var globals = get_node("/root/Globals")
 
+func _ready():
+	# register self to be the player
+	if globals.player == null:
+		globals.player = self
+
 func _process(delta):
 	look_at(get_global_mouse_position())
 	# handle shooting

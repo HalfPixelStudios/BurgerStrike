@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://b7uqo3rkxvtah"]
+[gd_scene load_steps=9 format=3 uid="uid://b7uqo3rkxvtah"]
 
 [ext_resource type="Script" path="res://scripts/GameManager.gd" id="1_58sx5"]
 [ext_resource type="Texture2D" uid="uid://tpf23uytvwei" path="res://sprites/tileset.png" id="2_7w1ph"]
 [ext_resource type="PackedScene" uid="uid://cwre7pomfe73u" path="res://scenes/Player.tscn" id="3_5pmu0"]
 [ext_resource type="PackedScene" uid="uid://c0ujo7raol74o" path="res://scenes/Enemy.tscn" id="4_r0jya"]
 [ext_resource type="Script" path="res://scripts/Camera.gd" id="5_bdovx"]
+[ext_resource type="Script" path="res://scenes/levels/ScoreLabel.gd" id="6_lbpms"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lrw20"]
 texture = ExtResource("2_7w1ph")
@@ -294,3 +295,25 @@ zoom = Vector2(3, 3)
 script = ExtResource("5_bdovx")
 TargetNodepath = NodePath("../Player")
 lerpspeed = 0.1
+
+[node name="UserInterface" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ScoreLabel" type="Label" parent="UserInterface"]
+layout_mode = 0
+offset_left = 54.0
+offset_top = -83.0
+offset_right = 107.0
+offset_bottom = -41.0
+scale = Vector2(1.03473, 1.06826)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = -2
+theme_override_font_sizes/font_size = 9
+text = "Score: 0
+Health: 0
+Wave: 0"
+uppercase = true
+script = ExtResource("6_lbpms")

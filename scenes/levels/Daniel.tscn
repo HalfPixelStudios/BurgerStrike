@@ -6,7 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://c0ujo7raol74o" path="res://scenes/Enemy.tscn" id="4_vfbub"]
 [ext_resource type="Script" path="res://scripts/Camera.gd" id="5_r3lwe"]
 [ext_resource type="PackedScene" uid="uid://ckeuy4n7lbry5" path="res://scenes/PickupItem.tscn" id="6_n4xlb"]
-[ext_resource type="Script" path="res://scripts/Item.gd" id="7_36r0x"]
+[ext_resource type="Resource" uid="uid://gk7qypk05u23" path="res://resources/items/sauce/ketcup.tres" id="7_yr2jp"]
+[ext_resource type="Resource" uid="uid://bqmoq80j5den7" path="res://resources/items/burger/lettuce.tres" id="8_7fw84"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lrw20"]
 texture = ExtResource("2_4uj7p")
@@ -267,10 +268,6 @@ texture = ExtResource("2_4uj7p")
 [sub_resource type="TileSet" id="TileSet_tj2i2"]
 sources/0 = SubResource("TileSetAtlasSource_lrw20")
 
-[sub_resource type="Resource" id="Resource_kview"]
-script = ExtResource("7_36r0x")
-name = "Ketchup Packet"
-
 [node name="Main" type="Node2D"]
 script = ExtResource("1_p5wqo")
 
@@ -301,6 +298,10 @@ script = ExtResource("5_r3lwe")
 TargetNodepath = NodePath("../Player")
 lerpspeed = 0.1
 
-[node name="PickupItem" parent="." instance=ExtResource("6_n4xlb")]
+[node name="KechupItem" parent="." instance=ExtResource("6_n4xlb")]
 position = Vector2(19, -8)
-item = SubResource("Resource_kview")
+item = ExtResource("7_yr2jp")
+
+[node name="LettuceItem" parent="." instance=ExtResource("6_n4xlb")]
+position = Vector2(47, 37)
+item = ExtResource("8_7fw84")

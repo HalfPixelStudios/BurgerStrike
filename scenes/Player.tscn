@@ -27,6 +27,6 @@ region_rect = Rect2(2.08165e-12, 2.08165e-12, 35, 35)
 
 [node name="PickerUpper" parent="." instance=ExtResource("3_dc2ih")]
 
-[node name="Node" type="Node" parent="."]
+[node name="Inventory" type="Node" parent="."]
 script = ExtResource("4_py77w")
-items = Array[Resource("res://scripts/Item.gd")]([null])
+items = Array[Resource("res://scripts/BurgerItem.gd")]([null])

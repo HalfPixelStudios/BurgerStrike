@@ -17,6 +17,10 @@ func _on_body_entered(area):
 func _physics_process(delta):
 	for body in get_overlapping_areas():
 		if body is PickupItem:
-			print("item name", body.item.name)
+			if body.item is BurgerItem:
+				print("burger item", body.item)
+				$"../Inventory".add_item(body.item)
+			elif body.item is SauceItem:
+				print("sauce item", body.item)
+
 			body.queue_free()
-			print("body", body)

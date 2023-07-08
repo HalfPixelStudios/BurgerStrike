@@ -1,13 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://b4ch2e1hprhrf"]
+[gd_scene load_steps=4 format=3 uid="uid://xpxg6ptqabq1"]
 
 [ext_resource type="Script" path="res://scripts/ui/BurgerDisplay.gd" id="1_ssriw"]
-[ext_resource type="Texture2D" uid="uid://comkybd16uyko" path="res://sprites/burger/lettuce.png" id="1_vl8p0"]
+[ext_resource type="PackedScene" uid="uid://5ginvva04y0h" path="res://scenes/ItemDisplay.tscn" id="2_2o4r2"]
 [ext_resource type="Texture2D" uid="uid://dpty02wbprtep" path="res://sprites/burger/onion.png" id="2_efnou"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_r8psx"]
-font_size = 30
-font_color = Color(0, 0, 0, 1)
-outline_size = 5
 
 [node name="HUD" type="Control"]
 layout_mode = 3
@@ -16,6 +11,23 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Container" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_ssriw")
+
+[node name="TextureRect2" type="TextureRect" parent="Container"]
+layout_mode = 2
+offset_top = 484.0
+offset_right = 100.0
+offset_bottom = 599.948
+texture = ExtResource("2_efnou")
+expand_mode = 5
+
+[node name="ItemDisplay" parent="Container" instance=ExtResource("2_2o4r2")]
+layout_mode = 0
 
 [node name="BurgerDisplay" type="VBoxContainer" parent="."]
 layout_direction = 2
@@ -29,32 +41,6 @@ offset_bottom = -1.0
 grow_vertical = 0
 alignment = 2
 script = ExtResource("1_ssriw")
-
-[node name="TextureRect" type="TextureRect" parent="BurgerDisplay"]
-layout_mode = 2
-texture = ExtResource("1_vl8p0")
-expand_mode = 5
-
-[node name="Label" type="Label" parent="BurgerDisplay/TextureRect"]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -40.0
-offset_top = -46.4762
-offset_bottom = -1.4762
-grow_horizontal = 0
-grow_vertical = 0
-text = "1"
-label_settings = SubResource("LabelSettings_r8psx")
-horizontal_alignment = 2
-
-[node name="TextureRect2" type="TextureRect" parent="BurgerDisplay"]
-layout_mode = 2
-texture = ExtResource("2_efnou")
-expand_mode = 5
 
 [node name="AmmoDisplay" type="HBoxContainer" parent="."]
 layout_mode = 1

@@ -1,11 +1,21 @@
-extends Control
+extends VBoxContainer
 
 @onready var item_display: PackedScene = preload("res://scenes/ItemDisplay.tscn")
 
+@onready var signal_bus = get_node("/root/SignalBus")
+
 const OFFSET = 10
+
+func _ready():
+	signal_bus.pickup_burger_item.connect(add_item)
 
 func add_item(item):
 	var inst = item_display.instantiate()
-	item_display.position = Vector2(0, -1 * OFFSET * get_children().size())
+
+	var image = Image.load_from_file(item.image_path)
+	var texture = ImageTexture.create_from_image(image)
+	inst.texture = texture
+
+	inst.global_position = global_position + Vector2(0, -1 * OFFSET * get_children().size())
 	add_child(inst)
 	

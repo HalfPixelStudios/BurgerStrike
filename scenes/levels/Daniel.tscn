@@ -293,7 +293,7 @@ position = Vector2(47, 37)
 item = ExtResource("8_7fw84")
 
 [node name="Enemy" parent="." instance=ExtResource("4_vfbub")]
-position = Vector2(-22, -16)
+position = Vector2(19, -24)
 
 [node name="WaveManager" type="Node" parent="."]
 script = ExtResource("8_qan7t")

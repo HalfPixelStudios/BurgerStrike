@@ -11,6 +11,7 @@ func _process(delta):
 	look_at(get_global_mouse_position())
 	# handle shooting
 	if Input.is_action_just_pressed('shoot'):
+
 		var bullet = $Shooter.use_bullet()
 		print("shooting bullet", bullet)
 		if bullet != null:

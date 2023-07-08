@@ -21,6 +21,7 @@ func _on_bullet_shoot(bullet_scene, location, rotation):
 	var bullet = bullet_scene.instantiate()
 	bullet.global_position = location
 	bullet.rotation = rotation
+
 	#bullet_container.add_child(bullet)
 
 func _on_bullet_shoot_player(bullet_scene, location, rotation):
@@ -30,5 +31,6 @@ func _on_bullet_shoot_player(bullet_scene, location, rotation):
 	# bullet_container.add_child(bullet)
 	# var curr_bullet_type = shooter.shoot_bullet(shooter.shooting_queue)
 	# bullet.modulate = shooter.bullet_type[curr_bullet_type]  
+
 	
 	pass

@@ -1,5 +1,6 @@
 extends Node
 
+
 @export var ammunition: Array[SauceItem]
 
 @export var shooting_queue: Array = ["lettuce", "shoe", "ketchup", "lettuce", "lettuce", "ketchup"]
@@ -14,6 +15,7 @@ var max_queue_size = 10
 }
 
 func add_bullet(item):
+
 	if len(ammunition) < max_queue_size:
 		ammunition.push_back(item)
 

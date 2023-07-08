@@ -23,17 +23,19 @@ func _on_spawn_timer_timeout():
 
 func start_wave():
 	# get all the spawns in the wave
-	print("current wave", waves.get_child(current_wave))
+	print("current wave:", current_wave, waves.get_child(current_wave))
+	await get_tree().create_timer(WAVE_REST).timeout	
 	for wave_spawn in waves.get_child(current_wave).get_children():
+
 		# pick a random spawn point
 		var spawn_point = spawn_points.get_children()[randi() % len(spawn_points.get_children())]
+		for i in range(wave_spawn.count):
 		
-		# spawn the enemy
-		var inst = wave_spawn.enemy.instantiate()
-		print("instantiate enemy", inst)
-		inst.global_position = spawn_point.global_position
+			# spawn the enemy
+			var inst = wave_spawn.enemy.instantiate()
+			# print("instantiate enemy", inst)
+			inst.global_position = spawn_point.global_position
 
-		globals.add_child(inst)
-		print(wave_spawn)
+			globals.add_child(inst)
 
-	
+			await get_tree().create_timer(SPAWN_REST).timeout	

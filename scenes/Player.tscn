@@ -1,5 +1,4 @@
-
-[gd_sene load_steps=8 format=3 uid="uid://cwre7pomfe73u"]
+[gd_scene load_steps=8 format=3 uid="uid://cwre7pomfe73u"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_e2y74"]
 [ext_resource type="Texture2D" uid="uid://5jnm0t5m0wyr" path="res://sprites/03.png" id="2_tpg8j"]
@@ -37,4 +36,3 @@ items = Array[Resource("res://scripts/BurgerItem.gd")]([null])
 [node name="Shooter" type="Node2D" parent="."]
 script = ExtResource("5_372h2")
 ammunition = Array[Resource("res://scripts/SauceItem.gd")]([ExtResource("6_8uwjp"), ExtResource("6_8uwjp"), ExtResource("6_8uwjp"), ExtResource("6_8uwjp"), ExtResource("6_8uwjp")])
-

@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://cwre7pomfe73u"]
+[gd_scene load_steps=10 format=3 uid="uid://cwre7pomfe73u"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_e2y74"]
 [ext_resource type="Texture2D" uid="uid://5jnm0t5m0wyr" path="res://sprites/03.png" id="2_tpg8j"]
 [ext_resource type="PackedScene" uid="uid://cfx5cdofitgxf" path="res://scenes/PickerUpper.tscn" id="3_dc2ih"]
+[ext_resource type="PackedScene" uid="uid://c2mxgonifbyx4" path="res://scenes/BobbingTweener.tscn" id="3_ds64n"]
 [ext_resource type="Script" path="res://scripts/Inventory.gd" id="4_py77w"]
 [ext_resource type="Script" path="res://scripts/Shooter.gd" id="5_372h2"]
 [ext_resource type="Resource" uid="uid://gk7qypk05u23" path="res://resources/items/sauce/ketchup.tres" id="6_1m6i8"]
@@ -18,6 +19,9 @@ collision_layer = 2
 collision_mask = 260
 motion_mode = 1
 script = ExtResource("1_e2y74")
+
+[node name="BobbingTweener" parent="." node_paths=PackedStringArray("target") instance=ExtResource("3_ds64n")]
+target = NodePath("../Sprite2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 0.5)

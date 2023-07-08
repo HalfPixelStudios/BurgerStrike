@@ -21,7 +21,7 @@ func _ready():
 	self.add_child(iframe_timer)
 
 func _process(delta):
-	look_at(get_global_mouse_position())
+	var angle = global_position.angle_to_point(get_global_mouse_position())
 	# handle shooting
 	if Input.is_action_just_pressed('shoot'):
 
@@ -31,7 +31,7 @@ func _process(delta):
 		var inst = bullet_scene.instantiate()
 		# print("instantiate bullet", inst)
 		inst.global_position = bullet_spawn.global_position
-		inst.rotation = rotation
+		inst.rotation = angle
 		inst.modulate = Color.RED
 		globals.bullet_container.add_child(inst)
 

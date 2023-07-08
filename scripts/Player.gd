@@ -24,3 +24,4 @@ func _physics_process(delta):
 	velocity = input_dir * speed
 
 	move_and_slide()
+

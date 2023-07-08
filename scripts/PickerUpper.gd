@@ -4,25 +4,17 @@ class_name PickerUpper extends Area2D
 
 func _ready():
 	area_entered.connect(_on_area_entered)
-	print("picker upper item ready")
+	# print("picker upper item ready")
 
 func _on_area_entered(area):
-	print("area entered", area)
+	# print("area entered", area)
 	if area is PickupItem:
-		queue_free()
-		print("pickup!")
+		if area is PickupItem:
+			if area.item is BurgerItem:
+				print("burger item", area.item)
+				$"../Inventory".add_item(area.item)
+			elif area.item is SauceItem:
+				print("sauce item", area.item)
+				$"../Shooter".add_bullet(area.item)
 
-func _on_body_entered(area):
-	print("body entered")
-
-func _physics_process(delta):
-	for body in get_overlapping_areas():
-		if body is PickupItem:
-			if body.item is BurgerItem:
-				print("burger item", body.item)
-				$"../Inventory".add_item(body.item)
-			elif body.item is SauceItem:
-				print("sauce item", body.item)
-				$"../Shooter".add_bullet(body.item)
-
-			body.queue_free()
+			area.queue_free()

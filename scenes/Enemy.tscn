@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://c0ujo7raol74o"]
+[gd_scene load_steps=8 format=3 uid="uid://c0ujo7raol74o"]
 
 [ext_resource type="Script" path="res://scripts/Enemy.gd" id="1_bvujv"]
 [ext_resource type="Texture2D" uid="uid://bdtdj0ci7pivl" path="res://sprites/spritesheet.png" id="2_2nrx1"]
 [ext_resource type="Script" path="res://scripts/ItemDrop.gd" id="3_0lf62"]
+[ext_resource type="Script" path="res://scripts/DropTable.gd" id="3_vfv4k"]
 [ext_resource type="Resource" uid="uid://bqmoq80j5den7" path="res://resources/items/burger/lettuce.tres" id="4_n6oca"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w7vev"]
@@ -39,6 +40,7 @@ collision_mask = 8
 shape = SubResource("CircleShape2D_kbysg")
 
 [node name="DropTable" type="Node" parent="."]
+script = ExtResource("3_vfv4k")
 
 [node name="ItemDrop" type="Node" parent="DropTable"]
 script = ExtResource("3_0lf62")

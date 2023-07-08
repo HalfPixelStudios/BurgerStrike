@@ -300,6 +300,10 @@ lerpspeed = 0.1
 position = Vector2(19, -8)
 item = ExtResource("6_tdcom")
 
+[node name="KechupItem2" parent="." instance=ExtResource("6_n4xlb")]
+position = Vector2(10, -39)
+item = ExtResource("6_tdcom")
+
 [node name="LettuceItem" parent="." instance=ExtResource("6_n4xlb")]
 position = Vector2(47, 37)
 item = ExtResource("8_7fw84")

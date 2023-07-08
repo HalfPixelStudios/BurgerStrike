@@ -2,6 +2,9 @@ extends Node
 
 # attach this to any node to tween the position up and down
 
+# signal thats fired at end of animation
+signal footstep
+
 var tweener = null
 
 # how much to bob
@@ -34,9 +37,12 @@ func _physics_process(delta):
 
 		tweener.tween_interval(spacing)
 		tweener.tween_callback(reset_tween)
+		tweener.tween_callback(fire_signal)
 
 func reset_tween():
 	tweener = null
 	lean_left = -lean_left
 
+func fire_signal():
+	footstep.emit()
 

@@ -274,6 +274,7 @@ sources/0 = SubResource("TileSetAtlasSource_lrw20")
 script = ExtResource("1_p5wqo")
 
 [node name="TileMap" type="TileMap" parent="."]
+z_index = -1
 tile_set = SubResource("TileSet_tj2i2")
 format = 2
 layer_0/name = "floor"
@@ -325,5 +326,3 @@ position = Vector2(117, 0)
 
 [node name="SpawnTimer" type="Timer" parent="WaveManager"]
 wait_time = 2.0
-
-[connection signal="timeout" from="WaveManager/SpawnTimer" to="WaveManager" method="_on_spawn_timer_timeout"]

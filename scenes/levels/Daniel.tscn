@@ -322,3 +322,5 @@ position = Vector2(117, 0)
 
 [node name="SpawnTimer" type="Timer" parent="WaveManager"]
 wait_time = 2.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]

@@ -18,4 +18,5 @@ func add_item(item):
 
 	inst.global_position = global_position + Vector2(0, -1 * OFFSET * get_children().size())
 	add_child(inst)
+	move_child(inst, 0)
 	

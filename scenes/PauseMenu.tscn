@@ -5,7 +5,7 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4gs5c"]
 shader = ExtResource("1_1qlxt")
-shader_parameter/blur = 0.0
+shader_parameter/blur = 0.36
 shader_parameter/brightness = 1.0
 
 [sub_resource type="Animation" id="Animation_myl6x"]

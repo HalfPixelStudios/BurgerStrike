@@ -27,22 +27,15 @@ collision_mask = 260
 motion_mode = 1
 script = ExtResource("1_e2y74")
 
-[node name="HUD" parent="." instance=ExtResource("2_2ds4w")]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -400.0
-offset_top = -300.0
-scale = Vector2(0.25, 0.25)
-
-[node name="PauseMenu" parent="." instance=ExtResource("2_sq4e4")]
-z_index = 10
-scale = Vector2(0.25, 0.25)
-
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(4, 4)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
+
+[node name="PauseMenu" parent="Camera2D/CanvasLayer" instance=ExtResource("2_sq4e4")]
+z_index = 10
+
+[node name="HUD" parent="Camera2D/CanvasLayer" instance=ExtResource("2_2ds4w")]
 
 [node name="BobbingTweener" parent="." node_paths=PackedStringArray("target") instance=ExtResource("3_ds64n")]
 target = NodePath("../Sprite2D")

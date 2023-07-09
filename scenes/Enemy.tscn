@@ -1,27 +1,34 @@
-[gd_scene load_steps=10 format=3 uid="uid://c0ujo7raol74o"]
+[gd_scene load_steps=17 format=3 uid="uid://c0ujo7raol74o"]
 
-[ext_resource type="Script" path="res://scripts/Enemy.gd" id="1_bvujv"]
+[ext_resource type="Script" path="res://scripts/enemies/Enemy.gd" id="1_fimag"]
+[ext_resource type="PackedScene" uid="uid://baj4rco875n5j" path="res://scenes/DamageTweener.tscn" id="2_0ohe0"]
 [ext_resource type="Script" path="res://scripts/ItemDrop.gd" id="3_0lf62"]
 [ext_resource type="Texture2D" uid="uid://cxcm473vxofhp" path="res://sprites/enemy/man1.png" id="3_ftsby"]
 [ext_resource type="Script" path="res://scripts/DropTable.gd" id="3_vfv4k"]
-[ext_resource type="Script" path="res://scripts/resources/BurgerItem.gd" id="6_6haj8"]
 [ext_resource type="PackedScene" uid="uid://c2mxgonifbyx4" path="res://scenes/BobbingTweener.tscn" id="6_i1bhb"]
+[ext_resource type="Resource" uid="uid://h54o44qdgq0w" path="res://resources/items/burger/lettuce.tres" id="7_j8bwl"]
+[ext_resource type="Script" path="res://scripts/RandomAudioPlayer.gd" id="8_5t8f3"]
+[ext_resource type="Resource" uid="uid://gk7qypk05u23" path="res://resources/items/sauce/ketchup.tres" id="8_tda6b"]
+[ext_resource type="AudioStream" uid="uid://ckrvjvnkhsayt" path="res://audio/sfx/hit_01.wav" id="9_wh0sq"]
+[ext_resource type="AudioStream" uid="uid://cdlmtqtmtpmai" path="res://audio/sfx/hit_02.wav" id="10_jefqe"]
+[ext_resource type="AudioStream" uid="uid://bq0ekdg8taash" path="res://audio/sfx/hit_03.wav" id="11_de0kv"]
+[ext_resource type="AudioStream" uid="uid://dkhw7avfsc8ur" path="res://audio/sfx/man_death_01.wav" id="12_m2re7"]
+[ext_resource type="AudioStream" uid="uid://2805a5mt0hsl" path="res://audio/sfx/man_death_02.wav" id="13_4oa5e"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_c27jd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kbysg"]
 radius = 20.0
 
-[sub_resource type="Resource" id="Resource_iebqp"]
-script = ExtResource("6_6haj8")
-type = 0
-name = ""
-
 [node name="Enemy" type="CharacterBody2D"]
 collision_layer = 4
 collision_mask = 12
 motion_mode = 1
-script = ExtResource("1_bvujv")
+script = ExtResource("1_fimag")
+health = 1
+
+[node name="DamageTweener" parent="." node_paths=PackedStringArray("target") instance=ExtResource("2_0ohe0")]
+target = NodePath("../Sprite2D")
 
 [node name="BobbingTweener" parent="." node_paths=PackedStringArray("target") instance=ExtResource("6_i1bhb")]
 magnitude = 2.0
@@ -56,7 +63,32 @@ script = ExtResource("3_vfv4k")
 
 [node name="ItemDrop" type="Node" parent="DropTable"]
 script = ExtResource("3_0lf62")
-item = SubResource("Resource_iebqp")
+item = ExtResource("7_j8bwl")
 chance = 0.5
+
+[node name="ItemDrop2" type="Node" parent="DropTable"]
+script = ExtResource("3_0lf62")
+item = ExtResource("8_tda6b")
+chance = 0.5
+
+[node name="ItemDrop3" type="Node" parent="DropTable"]
+script = ExtResource("3_0lf62")
+item = ExtResource("8_tda6b")
+chance = 0.5
+
+[node name="ItemDrop4" type="Node" parent="DropTable"]
+script = ExtResource("3_0lf62")
+item = ExtResource("8_tda6b")
+chance = 0.5
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+
+[node name="HitSFX" type="AudioStreamPlayer2D" parent="."]
+script = ExtResource("8_5t8f3")
+sounds = Array[AudioStreamWAV]([ExtResource("9_wh0sq"), ExtResource("10_jefqe"), ExtResource("11_de0kv")])
+
+[node name="DeathSFX" type="AudioStreamPlayer2D" parent="."]
+script = ExtResource("8_5t8f3")
+sounds = Array[AudioStreamWAV]([ExtResource("12_m2re7"), ExtResource("13_4oa5e")])
 
 [connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]

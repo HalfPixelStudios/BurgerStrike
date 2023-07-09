@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/GameManager.gd" id="1_xpv7o"]
 [ext_resource type="Texture2D" uid="uid://tpf23uytvwei" path="res://sprites/tileset.png" id="2_u4tfx"]
 [ext_resource type="PackedScene" uid="uid://cwre7pomfe73u" path="res://scenes/Player.tscn" id="3_vwj0d"]
-[ext_resource type="PackedScene" path="res://scenes/PickupItem.tscn" id="4_okb0x"]
+[ext_resource type="PackedScene" uid="uid://ckeuy4n7lbry5" path="res://scenes/PickupItem.tscn" id="4_okb0x"]
 [ext_resource type="Resource" uid="uid://h54o44qdgq0w" path="res://resources/items/burger/lettuce.tres" id="5_mco0n"]
 [ext_resource type="PackedScene" uid="uid://c0ujo7raol74o" path="res://scenes/Enemy.tscn" id="6_1btjv"]
 [ext_resource type="Script" path="res://scripts/WaveManager.gd" id="7_apsmu"]

@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://5ginvva04y0h"]
+
+[node name="ItemDisplay" type="TextureRect"]
+offset_right = 20.0
+offset_bottom = 20.0
+expand_mode = 5

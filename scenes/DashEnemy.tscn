@@ -1,0 +1,96 @@
+[gd_scene load_steps=19 format=3 uid="uid://djsyenkottqv0"]
+
+[ext_resource type="Script" path="res://scripts/enemies/DashEnemy.gd" id="1_ikb46"]
+[ext_resource type="Script" path="res://scripts/RandomAudioPlayer.gd" id="2_4sdgc"]
+[ext_resource type="PackedScene" uid="uid://baj4rco875n5j" path="res://scenes/DamageTweener.tscn" id="2_a1d46"]
+[ext_resource type="PackedScene" uid="uid://c2mxgonifbyx4" path="res://scenes/BobbingTweener.tscn" id="3_0y4gd"]
+[ext_resource type="AudioStream" uid="uid://ckrvjvnkhsayt" path="res://audio/sfx/hit_01.wav" id="3_4bpe5"]
+[ext_resource type="AudioStream" uid="uid://cdlmtqtmtpmai" path="res://audio/sfx/hit_02.wav" id="4_jdwva"]
+[ext_resource type="Texture2D" uid="uid://ctprcorsfahck" path="res://sprites/woman_with_stroller_new.png" id="4_jy2rs"]
+[ext_resource type="Script" path="res://scripts/DropTable.gd" id="5_6mb1c"]
+[ext_resource type="AudioStream" uid="uid://bq0ekdg8taash" path="res://audio/sfx/hit_03.wav" id="5_ahe74"]
+[ext_resource type="Script" path="res://scripts/ItemDrop.gd" id="6_bmouo"]
+[ext_resource type="AudioStream" uid="uid://bt8xqgfb7houx" path="res://audio/sfx/stroller_death_01.wav" id="6_o48m5"]
+[ext_resource type="AudioStream" uid="uid://dbwmbm36ee2fw" path="res://audio/sfx/stroller_death_02.wav" id="7_fhla2"]
+[ext_resource type="AudioStream" uid="uid://bkgv4y7h1n1mo" path="res://audio/sfx/stroller_death_03.wav" id="8_d706j"]
+[ext_resource type="Resource" uid="uid://cieiekpmby3kf" path="res://resources/items/burger/tomato.tres" id="14_4kq1s"]
+[ext_resource type="Resource" uid="uid://gk7qypk05u23" path="res://resources/items/sauce/ketchup.tres" id="15_ivbw6"]
+[ext_resource type="Resource" uid="uid://bfagrrmvbg6dd" path="res://resources/items/sauce/mustard.tres" id="16_a2acj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_c27jd"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kbysg"]
+radius = 20.0
+
+[node name="Enemy2" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 12
+motion_mode = 1
+script = ExtResource("1_ikb46")
+health = 2
+
+[node name="HitSFX" type="AudioStreamPlayer2D" parent="."]
+script = ExtResource("2_4sdgc")
+sounds = Array[AudioStreamWAV]([ExtResource("3_4bpe5"), ExtResource("4_jdwva"), ExtResource("5_ahe74")])
+
+[node name="DeathSFX" type="AudioStreamPlayer2D" parent="."]
+script = ExtResource("2_4sdgc")
+sounds = Array[AudioStreamWAV]([ExtResource("6_o48m5"), ExtResource("7_fhla2"), ExtResource("8_d706j")])
+
+[node name="DamageTweener" parent="." node_paths=PackedStringArray("target") instance=ExtResource("2_a1d46")]
+target = NodePath("../Sprite2D")
+
+[node name="BobbingTweener" parent="." node_paths=PackedStringArray("target") instance=ExtResource("3_0y4gd")]
+magnitude = 2.0
+target = NodePath("../Sprite2D")
+speed = 0.07
+rotate = 0.2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_c27jd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(2, -4)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("4_jy2rs")
+region_rect = Rect2(8, 0, 8, 8)
+
+[node name="ShootTimer" type="Timer" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(0, -2)
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+y_sort_enabled = true
+shape = SubResource("CircleShape2D_kbysg")
+
+[node name="DropTable" type="Node" parent="."]
+script = ExtResource("5_6mb1c")
+
+[node name="ItemDrop" type="Node" parent="DropTable"]
+script = ExtResource("6_bmouo")
+item = ExtResource("14_4kq1s")
+chance = 0.5
+
+[node name="ItemDrop2" type="Node" parent="DropTable"]
+script = ExtResource("6_bmouo")
+item = ExtResource("15_ivbw6")
+chance = 0.5
+
+[node name="ItemDrop3" type="Node" parent="DropTable"]
+script = ExtResource("6_bmouo")
+item = ExtResource("16_a2acj")
+chance = 0.5
+
+[node name="ItemDrop4" type="Node" parent="DropTable"]
+script = ExtResource("6_bmouo")
+item = ExtResource("15_ivbw6")
+chance = 0.5
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+
+[connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]

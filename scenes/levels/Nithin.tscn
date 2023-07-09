@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://scripts/Camera.gd" id="5_3fj1q"]
 [ext_resource type="PackedScene" uid="uid://ckeuy4n7lbry5" path="res://scenes/PickupItem.tscn" id="5_7dt6w"]
 [ext_resource type="Resource" uid="uid://gk7qypk05u23" path="res://resources/items/sauce/ketchup.tres" id="6_kvux2"]
-[ext_resource type="Resource" uid="uid://bqmoq80j5den7" path="res://resources/items/burger/lettuce.tres" id="7_bf1ju"]
+[ext_resource type="Resource" uid="uid://cieiekpmby3kf" path="res://resources/items/burger/tomato.tres" id="7_bf1ju"]
 [ext_resource type="Script" path="res://scripts/WaveManager.gd" id="8_ggr4r"]
 [ext_resource type="Script" path="res://scripts/WaveSpawn.gd" id="9_q6o41"]
 

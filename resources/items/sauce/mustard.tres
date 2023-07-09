@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="SauceItem" load_steps=2 format=3 uid="uid://bfagrrmvbg6dd"]
+
+[ext_resource type="Script" path="res://scripts/resources/SauceItem.gd" id="1_d5bek"]
+
+[resource]
+script = ExtResource("1_d5bek")
+damage = 0
+bullet_sprite = "res://sprites/bullet/mustard_bullet.png"
+name = "Mustard"
+image_path = "res://sprites/sauce/mustard.png"

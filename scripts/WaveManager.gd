@@ -26,6 +26,7 @@ func start_wave():
 	spawn_timer.stop()
 	# get all the spawns in the wave
 	print("current wave:", current_wave, waves.get_child(current_wave))
+	current_wave = min(current_wave, waves.get_children().size()-1)
 	await get_tree().create_timer(WAVE_REST).timeout	
 	for wave_spawn in waves.get_child(current_wave).get_children():
 
@@ -43,3 +44,5 @@ func start_wave():
 			await get_tree().create_timer(SPAWN_REST).timeout	
 
 	spawn_timer.start()
+	current_wave += 1
+

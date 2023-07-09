@@ -2,18 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-
-uid="uid://c6wpry70ta5n1"
-
-path="res://.godot/imported/ketchup.png-d2dbbdc6863cbfa4ed9d1e4c44197bcb.ctex"
+uid="uid://bw8tlxsdn3t6d"
+path="res://.godot/imported/ketchup_bullet.png-0dacba1b7c66fc5ce7b5638001849beb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/ketchup.png"
-dest_files=["res://.godot/imported/ketchup.png-d2dbbdc6863cbfa4ed9d1e4c44197bcb.ctex"]
+source_file="res://sprites/bullet/ketchup_bullet.png"
+dest_files=["res://.godot/imported/ketchup_bullet.png-0dacba1b7c66fc5ce7b5638001849beb.ctex"]
 
 [params]
 

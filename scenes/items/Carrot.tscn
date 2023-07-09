@@ -9,7 +9,9 @@ script/source = "class_name Carrot extends BurgerItem
 
 [sub_resource type="Resource" id="Resource_w2hst"]
 script = SubResource("GDScript_bhvis")
+type = 0
 name = ""
+image_path = ""
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_u18pm"]
 

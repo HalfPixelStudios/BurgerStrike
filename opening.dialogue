@@ -1,0 +1,27 @@
+~ opening
+
+Bob: [[Hi|Hello|Howdy]], Welcome to BurgerStrike.
+Bob: What are your dietary preferences?
+- Vegetarian / Vegan
+	set is_veg = true
+- N/A
+- Halal
+	set is_halal = true
+Bob: What toppings would you like?
+- Lettuce
+- Tomato
+- Onion
+- Carrot
+~ toppings
+Bob: Would you like any other toppings?
+- Lettuce => toppings
+- Tomato => toppings
+- Onion => toppings
+- Carrot => toppings
+- No thanks
+	
+	
+Bob: Great! We'll get that order to you very soon!
+Bob: Lemme grab 2 buns...
+Bob: Oh no! The bread came alive!
+=> END

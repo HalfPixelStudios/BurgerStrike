@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ba3fnocy2mt4y"
-path="res://.godot/imported/onion.png-34ebb255dd59fead78461c3e389aad34.ctex"
+uid="uid://cvmmdyd87oanq"
+path="res://.godot/imported/ketchup.png-b07e93a91e052d513a23a882990e6b97.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/onion.png"
-dest_files=["res://.godot/imported/onion.png-34ebb255dd59fead78461c3e389aad34.ctex"]
+source_file="res://sprites/sauce/ketchup.png"
+dest_files=["res://.godot/imported/ketchup.png-b07e93a91e052d513a23a882990e6b97.ctex"]
 
 [params]
 

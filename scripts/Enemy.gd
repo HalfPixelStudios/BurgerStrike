@@ -7,6 +7,7 @@ class_name Enemy extends CharacterBody2D
 @onready var bullet_spawn = $Marker2D
 
 @onready var drop_table = $DropTable
+@onready var nav = $NavigationAgent2D
 
 @onready var signal_bus = get_node("/root/SignalBus")
 @onready var globals = get_node("/root/Globals")
@@ -29,7 +30,10 @@ func _physics_process(delta):
 	if alive:
 		# super simple ai that targets the player
 		var target = globals.player.global_position	
-		velocity = (target - global_position).normalized() * speed
+		nav.target_position = target
+
+		velocity = position.direction_to(nav.get_next_path_position()) * speed
+		nav.set_velocity(velocity)
 		move_and_slide()
 
 func _on_area_entered(area):

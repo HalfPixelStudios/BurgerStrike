@@ -85,7 +85,7 @@ _data = {
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
-collision_mask = 260
+collision_mask = 261
 motion_mode = 1
 script = ExtResource("1_e2y74")
 

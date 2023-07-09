@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://ctbe15r3nw1ey"]
+[gd_scene load_steps=12 format=3 uid="uid://ctbe15r3nw1ey"]
 
 [ext_resource type="Script" path="res://scripts/GameManager.gd" id="1_p5wqo"]
 [ext_resource type="Texture2D" uid="uid://tpf23uytvwei" path="res://sprites/tileset.png" id="2_4uj7p"]
 [ext_resource type="PackedScene" uid="uid://cwre7pomfe73u" path="res://scenes/Player.tscn" id="3_wbqv4"]
 [ext_resource type="PackedScene" uid="uid://c0ujo7raol74o" path="res://scenes/Enemy.tscn" id="4_vfbub"]
+[ext_resource type="Resource" uid="uid://gk7qypk05u23" path="res://resources/items/sauce/ketchup.tres" id="6_glkdr"]
 [ext_resource type="PackedScene" uid="uid://ckeuy4n7lbry5" path="res://scenes/PickupItem.tscn" id="6_n4xlb"]
 [ext_resource type="Resource" uid="uid://h54o44qdgq0w" path="res://resources/items/burger/lettuce.tres" id="8_7fw84"]
 [ext_resource type="Script" path="res://scripts/WaveManager.gd" id="8_qan7t"]
@@ -291,6 +292,10 @@ position = Vector2(-58, 0)
 [node name="LettuceItem" parent="." instance=ExtResource("6_n4xlb")]
 position = Vector2(47, 37)
 item = ExtResource("8_7fw84")
+
+[node name="KetchupItem" parent="." instance=ExtResource("6_n4xlb")]
+position = Vector2(74, 2)
+item = ExtResource("6_glkdr")
 
 [node name="Enemy" parent="." instance=ExtResource("4_vfbub")]
 position = Vector2(19, -24)

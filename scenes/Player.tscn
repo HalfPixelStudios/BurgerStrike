@@ -1,9 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://cwre7pomfe73u"]
+[gd_scene load_steps=21 format=3 uid="uid://cwre7pomfe73u"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_e2y74"]
 [ext_resource type="PackedScene" uid="uid://xpxg6ptqabq1" path="res://scenes/HUD.tscn" id="2_2ds4w"]
 [ext_resource type="PackedScene" uid="uid://dpm61alcnyakd" path="res://scenes/PauseMenu.tscn" id="2_sq4e4"]
-[ext_resource type="Texture2D" uid="uid://5jnm0t5m0wyr" path="res://sprites/03.png" id="2_tpg8j"]
 [ext_resource type="PackedScene" uid="uid://cfx5cdofitgxf" path="res://scenes/PickerUpper.tscn" id="3_dc2ih"]
 [ext_resource type="PackedScene" uid="uid://c2mxgonifbyx4" path="res://scenes/BobbingTweener.tscn" id="3_ds64n"]
 [ext_resource type="Script" path="res://scripts/Inventory.gd" id="4_py77w"]
@@ -14,12 +13,75 @@
 [ext_resource type="Script" path="res://scripts/WalkSFX.gd" id="9_6entu"]
 [ext_resource type="Script" path="res://scripts/WalkParticles.gd" id="10_4nsey"]
 [ext_resource type="PackedScene" uid="uid://bb3yr2vgs54hk" path="res://scenes/particles/WalkParticles.tscn" id="10_n4dqa"]
+[ext_resource type="Texture2D" uid="uid://rlhpcg0hq3a1" path="res://sprites/player/empty/top.PNG" id="15_eyn5n"]
+[ext_resource type="Texture2D" uid="uid://k3r1vgdkg5wd" path="res://sprites/player/empty/bottom.PNG" id="16_ot6ea"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w7vev"]
 size = Vector2(6, 7)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_w77tt"]
 radius = 8.06226
+
+[sub_resource type="Animation" id="Animation_efji6"]
+resource_name = "Attack"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Top:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -30), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Bottom:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_agdm2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Top:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Bottom:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_36mnh"]
+_data = {
+"Attack": SubResource("Animation_efji6"),
+"RESET": SubResource("Animation_agdm2")
+}
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
@@ -38,7 +100,7 @@ z_index = 10
 [node name="HUD" parent="Camera2D/CanvasLayer" instance=ExtResource("2_2ds4w")]
 
 [node name="BobbingTweener" parent="." node_paths=PackedStringArray("target") instance=ExtResource("3_ds64n")]
-target = NodePath("../Sprite2D")
+target = NodePath("../PlayerSprite")
 
 [node name="WalkParticles" type="Node2D" parent="."]
 script = ExtResource("10_4nsey")
@@ -49,11 +111,6 @@ position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_w7vev")
 
 [node name="Marker2D" type="Marker2D" parent="."]
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_tpg8j")
-region_enabled = true
-region_rect = Rect2(2.08165e-12, 2.08165e-12, 35, 35)
 
 [node name="PickerUpper" parent="." instance=ExtResource("3_dc2ih")]
 
@@ -78,5 +135,24 @@ script = ExtResource("7_hndj4")
 [node name="WalkSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("8_uvkqu")
 script = ExtResource("9_6entu")
+
+[node name="PlayerSprite" type="Node2D" parent="."]
+position = Vector2(3, 8)
+scale = Vector2(0.05, 0.05)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PlayerSprite"]
+libraries = {
+"": SubResource("AnimationLibrary_36mnh")
+}
+
+[node name="Top" type="Node2D" parent="PlayerSprite"]
+
+[node name="Sprite2D" type="Sprite2D" parent="PlayerSprite/Top"]
+texture = ExtResource("15_eyn5n")
+
+[node name="Bottom" type="Node2D" parent="PlayerSprite"]
+
+[node name="Sprite2D" type="Sprite2D" parent="PlayerSprite/Bottom"]
+texture = ExtResource("16_ot6ea")
 
 [connection signal="footstep" from="BobbingTweener" to="WalkParticles" method="_on_bobbing_tweener_footstep"]

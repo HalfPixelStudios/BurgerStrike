@@ -5,6 +5,8 @@ extends CharacterBody2D
 @onready var bullet_spawn = $Marker2D
 var iframe_timer
 
+@onready var attack_animator: AnimationPlayer = $PlayerSprite/AnimationPlayer
+
 @onready var signal_bus = get_node("/root/SignalBus")
 @onready var globals = get_node("/root/Globals")
 
@@ -24,7 +26,7 @@ func _process(delta):
 	# handle shooting
 	if Input.is_action_just_pressed('shoot'):
 
-
+		attack_animator.play("Attack")
 		var bullet = $Shooter.use_bullet()
 		# print("shooting bullet", bullet)
 

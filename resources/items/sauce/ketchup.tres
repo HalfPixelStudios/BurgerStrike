@@ -6,3 +6,4 @@
 script = ExtResource("1_u68gb")
 damage = 0
 name = "Ketchup"
+image_path = "res://sprites/sauce/ketchup.png"
